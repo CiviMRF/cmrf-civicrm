@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<menu>
+  <item>
+    <path>civicrm/admin/setting/cmrf</path>
+    <page_callback>CRM_CmrfCivicrm_Form_Settings</page_callback>
+    <title>Civi McRestFace</title>
+    <desc>Configure remote connections</desc>
+    <access_arguments>administer CiviCRM</access_arguments>
+    <adminGroup>System Settings</adminGroup>
+    <weight>120</weight>
+  </item>
+  <item>
+    <path>civicrm/cmrf/apicalls</path>
+    <page_callback>CRM_CmrfCivicrm_Form_ApiCalls</page_callback>
+    <title>ApiCalls</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+</menu>
