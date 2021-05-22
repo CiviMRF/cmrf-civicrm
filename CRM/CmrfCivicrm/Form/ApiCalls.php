@@ -71,7 +71,13 @@ class CRM_CmrfCivicrm_Form_ApiCalls extends CRM_Core_Form {
         'isDefault' => TRUE,
       ],[
         'type' => 'next',
-        'name' => E::ts('Clear'),
+        'name' => E::ts('Purge'),
+        'subName' => 'purge',
+      ],
+      [
+        'type' => 'next',
+        'name' => E::ts('Purge All'),
+        'subName' => 'purgeAll',
       ],
     ]);
 
@@ -81,13 +87,15 @@ class CRM_CmrfCivicrm_Form_ApiCalls extends CRM_Core_Form {
   }
 
   public function preProcess() {
-    if($this->getSubmitValue('_qf_ApiCalls_next')){
+    if($this->getSubmitValue('_qf_ApiCalls_next_purge') || $this->getSubmitValue('_qf_ApiCalls_next_purgeAll')){
       CRM_Core_Session::singleton() ->pushUserContext(CRM_Utils_System::url('civicrm/cmrf/apicalls', 'reset=1'));
     }
   }
 
   public function postProcess() {
-    if($this->getSubmitValue('_qf_ApiCalls_next')){
+    if($this->getSubmitValue('_qf_ApiCalls_next_purge')){
+      civicrm_api3('Job','cmrf_purge');
+    } else if ($this->getSubmitValue(('_qf_ApiCalls_next_purgeAll'))){
       CRM_Core_DAO::executeQuery('delete from civicrm_cmrf_api_call');
     }
     parent::postProcess();

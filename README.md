@@ -34,5 +34,3 @@ This gives you the option to use `default` in your code and start with the `loca
 Configure the remote connections at `http(s)://<server>://civicrm/admin/setting/cmrf`. You can also access this
 form from _Administration Console_. Search in the _System Settings_ for _Civi McRestFace_
 
-## Known issues
-- cleanup batches are not programmed yet

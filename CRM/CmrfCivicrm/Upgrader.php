@@ -26,6 +26,27 @@ class CRM_CmrfCivicrm_Upgrader extends CRM_CmrfCivicrm_Upgrader_Base {
    */
   public function postInstall() {
     Civi::settings()->set('cmrf_default_connection','local');
+
+    $apiParams = [
+      'name' => 'CMRF Purge',
+      'description' => 'Purge Remote Api Calls',
+      'run_frequency' => 'Hourly',
+      'api_entity' => 'Job',
+      'api_action' => 'cmrf_purge',
+      'is_active'  => 1,
+      'parameters' => '',
+    ];
+
+    $jobId = CRM_Core_DAO::singleValueQuery('select id from civicrm_job where name=%1',[
+        1 => [$apiParams['name'],'String']
+      ]
+    );
+
+    if($jobId){
+      $apiParams['id'] = $jobId;
+    }
+
+    civicrm_api3('Job', 'create', $apiParams);
   }
 
   /**
