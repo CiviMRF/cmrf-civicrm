@@ -15,4 +15,10 @@
     <title>ApiCalls</title>
     <access_arguments>access CiviCRM</access_arguments>
   </item>
+  <item>
+    <path>civicrm/cmrf/apicall</path>
+    <page_callback>CRM_CmrfCivicrm_Form_ApiCallView</page_callback>
+    <title>ApiCall</title>
+    <access_arguments>administer CiviCRM</access_arguments>
+  </item>
 </menu>

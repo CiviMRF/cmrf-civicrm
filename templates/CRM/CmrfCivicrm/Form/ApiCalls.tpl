@@ -13,9 +13,8 @@
 
 
 <div class="crm-submit-buttons">
-{include file="CRM/common/formButtons.tpl" location="bottom"}
+  {include file="CRM/common/formButtons.tpl" location="bottom"}
 </div>
-
 
 <table class="selector row-highlight">
   <thead class="sticky">
@@ -28,12 +27,13 @@
     <th>Create Date</th>
   </tr>
   </thead>
+
   {foreach from=$rows item=row}
-    <tr  class="{cycle values="odd-row,even-row"}">
+    <tr  class='{cycle values="odd-row,even-row"}'>
       <td>{$row.cid}</td>
       <td>{$row.status}</td>
       <td>{$row.connector_id}</td>
-      <td>{$row.request}</td>
+      <td><a class='crm-popup' href='{$row.url}'>{$row.request}</a></td>
       <td>{$row.reply}</td>
       <td>{$row.create_date}</td>
     </tr>

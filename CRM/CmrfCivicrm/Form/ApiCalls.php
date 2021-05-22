@@ -34,6 +34,7 @@ class CRM_CmrfCivicrm_Form_ApiCalls extends CRM_Core_Form {
         'request' => substr($dao->request,0,50).' ... ',
         'reply' => substr($dao->reply,0,50) . ' ... ',
         'create_date' => $dao->create_date,
+        'url' =>CRM_Utils_System::url('civicrm/cmrf/apicall',['cid'=> $dao->cid])
       ];
     }
     return $rows;
