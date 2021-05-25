@@ -21,5 +21,3 @@ create table civicrm_cmrf_api_call
 
 create index cmrf_by_connector on civicrm_cmrf_api_call (connector_id, status);
 
-create index cmrf_cache_index on civicrm_cmrf_api_call (connector_id, request_hash, cached_until);
-
