@@ -17,7 +17,7 @@ create table civicrm_cmrf_api_call
     reply_date timestamp null comment 'Reply timestamp of this call',
     cached_until timestamp null comment 'Cache timeout of this call',
     retry_count tinyint default 0 not null comment 'Retry counter for multiple submissions'
-) comment 'CMRF CiviCRM integration API calls';
+)  engine=InnoDB comment 'CMRF CiviCRM integration API calls';
 
 create index cmrf_by_connector on civicrm_cmrf_api_call (connector_id, status);
 

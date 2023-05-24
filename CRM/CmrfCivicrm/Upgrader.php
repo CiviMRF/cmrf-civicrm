@@ -88,11 +88,11 @@ class CRM_CmrfCivicrm_Upgrader extends CRM_CmrfCivicrm_Upgrader_Base {
    * Example: Run an external SQL script.
    *
    * @return TRUE on success
-   * @throws Exception
-  public function upgrade_4201() {
-    $this->ctx->log->info('Applying update 4201');
+   * @throws Exception */
+  public function upgrade_1010() {
+    $this->ctx->log->info('Applying update 1010 Creating INNODB table');
     // this path is relative to the extension base dir
-    $this->executeSqlFile('sql/upgrade_4201.sql');
+    CRM_Core_DAO::singleValueQuery('alter table civicrm_cmrf_api_call engine=InnoDB;');
     return TRUE;
   } // */
 
